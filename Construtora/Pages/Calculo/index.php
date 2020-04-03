@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang = "pt-br">
 <head>
-   <title>Exemplo</title>
+   <title>e-Construtora</title>
    <meta charset = "UTF-8">
    <link rel="stylesheet" href="style.css">
 </head>
@@ -14,6 +14,7 @@ include_once("../../classes/Calculator.php");
 
 $calcular = new Calculator();
 
+
 if(isset($_POST['calc'])){
   $base = $_POST['base'];
   $altura = $_POST['altura'];
@@ -25,6 +26,8 @@ $calcular -> setbase(@$base);
 $calcular -> setaltura(@$altura);
 $calcular -> setcomprimento(@$comprimento);
 
+
+ $result= $calcular->multiplicar()/100;
 
 
 ?>
@@ -44,16 +47,19 @@ $calcular -> setcomprimento(@$comprimento);
                
     </section>
     <form  action="" method="post">
-    <select id="local">
+    <select  id="local">
   <option value="">Selecione uma das opções</option>
-  <option value="">Laje Maciça</option>
-  <option value="">Laje com Treliça</option>
-  <option value="">Viga</option>
-  <option value="">Contra Piso</option>
-  <option value="">Piso</option>
-  <option value="">Pilar</option>
-  <option value="">Bloco</option>
-  <option value="">Sapata</option>
+  <option disabled value="">Laje Maciça</option>
+  <option disabled value="">Laje com Treliça</option>
+  <option disabled value="">Viga</option>
+  <option disabled value="">Contra Piso</option>   <!--  Implementar demais calculo em um proxima versão-->
+  <option disabled value="">Piso</option>
+  <option disabled value="">Pilar</option>
+  <option  disabled value="">Bloco</option>
+  <option disabled value="">Sapata</option>
+  <hr>
+  <option disabled value="">Ainda nao implementado</option>
+
 </select>
 
 
@@ -66,7 +72,8 @@ $calcular -> setcomprimento(@$comprimento);
   <input required  type='number' name="comprimento" placeholder="Comprimento"
   
   /> 
-  <input   value="log" type='number'placeholder="Quantidade (M³)"
+  <!--  Implementar demais calculo em um proxima versão-->
+  <input  disabled value="log" type='number'placeholder="Quantidade (M³)" 
   />
 
 
@@ -74,7 +81,7 @@ $calcular -> setcomprimento(@$comprimento);
   <input type="submit" class="button"  name ="calc" value="Cacular"/>
     </form>
     <p>=</p>
-    <label value="log"><?php echo $calcular->multiplicar();?></label>
+    <label ><?php echo $result= number_format($result, 2, ',', '.');  ?></label>
 </div>
 
 </div> 
